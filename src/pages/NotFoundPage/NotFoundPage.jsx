@@ -1,12 +1,8 @@
 import React from 'react';
-import { Box, Typography } from "@material-ui/core";
+import { Redirect } from "react-router-dom";
 
 const NotFoundPage = () => {
-  return (
-    <Box>
-      <Typography>NotFound page</Typography>
-    </Box>
-  )
+  return <Redirect to="/"/>
 };
 
 export default NotFoundPage;
