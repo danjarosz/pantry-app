@@ -5,15 +5,17 @@ import {
   Button,
   Container,
   TextField,
-  Typography
+  Typography,
 } from "@material-ui/core";
+import { Formik, Field, Form } from 'formik';
+import { Link } from "react-router-dom";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   Container: {
-    minHeight: "100vh",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center"
+    minHeight: "100vh"
+  },
+  Link: {
+    color: theme.palette.primary.main
   }
 }));
 
@@ -26,40 +28,53 @@ const LoginPage = () => {
       className={classes.Container}
     >
       <Box>
-        <Box>
-          <Typography
-            variant="h4"
-            align="center"
-          >
-            Logowanie
+        <Formik>
+          <Form>
+            <Box my={3}>
+              <Field 
+                component={TextField}
+                label={"e-mail"}
+                fullWidth={true}
+                variant="outlined"
+                required={true}
+              />
+            </Box>
+            <Box my={3}>
+              <Field 
+                component={TextField}
+                label={"hasło"}
+                fullWidth={true}
+                variant="outlined"
+                required={true}
+                type="password"
+              />
+            </Box>
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              fullWidth={true}
+              type="submit"
+            >
+              Zaloguj się
+            </Button>
+          </Form>
+        </Formik>
+        <Box my={3}>
+          <Typography>
+            Jeśli nie masz konta możesz założyć je klikając <Link to="/signup" className={classes.Link}>tutaj</Link>, lub możesz zalogować się za pomocą Twojego konta Google.
           </Typography>
         </Box>
         <Box my={3}>
-          <TextField
-            label={"e-mail"}
-            fullWidth={true}
-            variant="outlined"
-            required={true}
-          />
+          <Button
+              variant="contained"
+              color="secondary"
+              size="large"
+              fullWidth={true}
+            >
+              Zaloguj się z Google
+            </Button>
         </Box>
-        <Box my={3}>
-          <TextField
-            label={"hasło"}
-            fullWidth={true}
-            variant="outlined"
-            required={true}
-            type="password"
-          />
-        </Box>
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          fullWidth={true}
-          type="submit"
-        >
-          Zaloguj się
-        </Button>
       </Box>
     </Container>
   )
