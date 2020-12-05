@@ -1,21 +1,8 @@
-import React, { useEffect } from "react";
-import { Container } from "@material-ui/core";
-import database from "./firebase/firebase";
+import React from "react";
 import AppRouter from "./router/AppRouter";
 
 function App() {
-
-  useEffect(() => {
-    database.ref("/pantries").once("value").then((snapshot) => {
-      console.log(snapshot.val())
-    })
-  }, []);
-
-  return (
-    <Container maxWidth="md">
-      <AppRouter />
-    </Container>
-  );
+  return <AppRouter />
 }
 
 export default App;
