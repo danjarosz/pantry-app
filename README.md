@@ -29,6 +29,10 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### Build the mobile app
+
+See the description in here [https://capacitorjs.com/docs/basics/workflow](https://capacitorjs.com/docs/basics/workflow)
+
 ### `yarn eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
@@ -64,10 +68,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### Build the mobile app
-
-See the description in here [https://capacitorjs.com/docs/basics/workflow](https://capacitorjs.com/docs/basics/workflow)
 
 ### `yarn build` fails to minify
 
