@@ -11,9 +11,6 @@ import { Formik, Field, Form } from 'formik';
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
-  Container: {
-    minHeight: "100vh"
-  },
   Link: {
     color: theme.palette.primary.main
   }
@@ -25,7 +22,6 @@ const LoginPage = () => {
   return (
     <Container
       maxWidth="xs"
-      className={classes.Container}
     >
       <Box>
         <Formik>
