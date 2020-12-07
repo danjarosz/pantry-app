@@ -34,7 +34,7 @@ export default function ButtonAppBar({ variant }) {
   } else if ( isDashboardPage && isDashboardPage.isExact) {
     title = "Spiżarnie"
   }
-
+  
   // <BackButton />
   let backButton = <BackButton />
   if (variant !== "private") {
