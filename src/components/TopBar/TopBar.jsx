@@ -8,10 +8,16 @@ import {
   Typography
 } from '@material-ui/core';
 import BackButton from "../BackButton/BackButton";
+import LanguageSelector from "../LanguageSelector/LanguageSelector";
+import Navigation from "../Navigation/Navigation";
 
 const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
+  },
+  toolbar: {
+    paddingLeft: 0,
+    paddingRight: 0
   },
   title: {
     flexGrow: 1,
@@ -36,18 +42,18 @@ export default function ButtonAppBar({ variant }) {
   }
   
   // <BackButton />
-  let backButton = <BackButton />
+  let rightButton = <BackButton />
   if (variant !== "private") {
-    backButton = null;
+    rightButton = <LanguageSelector />;
   }
 
   // Render
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Container maxWidth={"lg"}>
-          <Toolbar>
-            {backButton}
+        <Container maxWidth={"md"}>
+          <Toolbar className={classes.toolbar}>
+            <Navigation variant={variant}/>
             <Typography
               variant="h6"
               className={classes.title}
@@ -55,6 +61,7 @@ export default function ButtonAppBar({ variant }) {
             >
               {title}
             </Typography>
+            {rightButton}
           </Toolbar>
         </Container>
       </AppBar>
