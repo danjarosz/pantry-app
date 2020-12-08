@@ -8,9 +8,12 @@ import {
   List,
   ListItem,
   ListItemText,
+  ListItemIcon,
   Typography
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -24,7 +27,8 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     textDecoration: "none",
-    color: theme.palette.primary.main
+    color: "rgba(0, 0, 0, 0.54)",
+    fontWeight: "700"
   }
 }));
 
@@ -61,48 +65,46 @@ const Navigation = ({ variant }) => {
     { 
       type: "link",
       label: "Logowanie",
-      navigateTo: "/"
+      navigateTo: "/",
+      icon: <ExitToAppIcon />
     },
     {
       type: "link",
       label: "Rejestracja",
-      navigateTo: "/signup"
+      navigateTo: "/signup",
+      icon: <LockOpenIcon />
     }
   ]
 
   const getNavItems = (list) => list.map(item => {
-    const { type, label, navigateTo } = item;
+    const { type, label, navigateTo, icon } = item;
 
-    let itemEl = (
-      <Link
-        key={navigateTo}
-        to={navigateTo}
-        className={classes.link}
-      >
-        <ListItem
-          button
-        >
-          <ListItemText
-            color="primary"
-          >
-            {label}
-          </ListItemText>
-        </ListItem>
-      </Link>
-    )
-
-    if (type === "button") {
+    const baseItemEl = (
       <ListItem
           button
         >
-          <ListItemText
-            color="primary"
-          >
+          <ListItemIcon>
+            {icon}
+          </ListItemIcon>
+          <ListItemText>
             {label}
           </ListItemText>
       </ListItem>
-    }
+    )
+    
+    let itemEl = baseItemEl; 
 
+    if (type === "link") {
+      itemEl = (
+        <Link
+          key={navigateTo}
+          to={navigateTo}
+          className={classes.link}
+        >
+          {baseItemEl}
+        </Link>
+      )
+    }
 
     return itemEl
   })
