@@ -1,12 +1,7 @@
-import React from 'react';
+import React from "react";
 import { useRouteMatch } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
-import {
-  AppBar,
-  Container,
-  Toolbar,
-  Typography
-} from '@material-ui/core';
+import { makeStyles } from "@material-ui/core/styles";
+import { AppBar, Container, Toolbar, Typography } from "@material-ui/core";
 import BackButton from "../BackButton/BackButton";
 import LanguageSelector from "../LanguageSelector/LanguageSelector";
 import Navigation from "../Navigation/Navigation";
@@ -17,7 +12,7 @@ const useStyles = makeStyles(() => ({
   },
   toolbar: {
     paddingLeft: 0,
-    paddingRight: 0
+    paddingRight: 0,
   },
   title: {
     flexGrow: 1,
@@ -29,20 +24,20 @@ export default function ButtonAppBar({ variant }) {
 
   const isLoginPage = useRouteMatch("/");
   const isSignUpPage = useRouteMatch("/signup");
-  const isDashboardPage = useRouteMatch('/dashboard');
+  const isDashboardPage = useRouteMatch("/dashboard");
 
   let title = "Pantry App";
 
   if (isLoginPage && isLoginPage.isExact) {
-    title = "Logowanie"
+    title = "Logowanie";
   } else if (isSignUpPage && isSignUpPage.isExact) {
-    title = "Rejestracja"
-  } else if ( isDashboardPage && isDashboardPage.isExact) {
-    title = "Spiżarnie"
+    title = "Rejestracja";
+  } else if (isDashboardPage && isDashboardPage.isExact) {
+    title = "Spiżarnie";
   }
-  
+
   // <BackButton />
-  let rightButton = <BackButton />
+  let rightButton = <BackButton />;
   if (variant !== "private") {
     rightButton = <LanguageSelector />;
   }
@@ -51,14 +46,10 @@ export default function ButtonAppBar({ variant }) {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Container maxWidth={"md"}>
+        <Container>
           <Toolbar className={classes.toolbar}>
-            <Navigation variant={variant}/>
-            <Typography
-              variant="h6"
-              className={classes.title}
-              align="center"
-            >
+            <Navigation variant={variant} />
+            <Typography variant="h6" className={classes.title} align="center">
               {title}
             </Typography>
             {rightButton}

@@ -1,6 +1,6 @@
 const languages = {
   "pl-PL": {
-    fullName: "Polish",
+    fullName: "Polski",
     shortName: "pl-PL",
   },
   en: {
