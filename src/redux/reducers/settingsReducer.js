@@ -3,7 +3,8 @@ import availableLanguages from "../../config/languages";
 import { SET_LANGUAGE } from "../actionTypes";
 
 const getDefaultLanguage = (lang) => {
-  if ((_includes(availableLanguages), lang)) {
+  const languages = Object.keys(availableLanguages);
+  if (_includes(languages, lang)) {
     return lang;
   } else {
     return "en";
