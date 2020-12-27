@@ -1,5 +1,5 @@
 const languages = {
-  pl: {
+  "pl-PL": {
     fullName: "Polish",
     shortName: "pl",
   },
