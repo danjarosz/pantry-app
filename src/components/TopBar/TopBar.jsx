@@ -5,6 +5,7 @@ import { AppBar, Container, Toolbar, Typography } from "@material-ui/core";
 import BackButton from "../BackButton/BackButton";
 import LanguageSelector from "../LanguageSelector/LanguageSelector";
 import Navigation from "../Navigation/Navigation";
+import useTranslation from "../../redux/selectors/useTranslation";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -26,14 +27,18 @@ export default function ButtonAppBar({ variant }) {
   const isSignUpPage = useRouteMatch("/signup");
   const isDashboardPage = useRouteMatch("/dashboard");
 
-  let title = "Pantry App";
+  const titleApp = useTranslation("title.app");
+  const titleLogin = useTranslation("title.login");
+  const titleSignUp = useTranslation("title.signup");
+  const titlePantries = useTranslation("title.pantries");
+  let title = titleApp;
 
   if (isLoginPage && isLoginPage.isExact) {
-    title = "Logowanie";
+    title = titleLogin;
   } else if (isSignUpPage && isSignUpPage.isExact) {
-    title = "Rejestracja";
+    title = titleSignUp;
   } else if (isDashboardPage && isDashboardPage.isExact) {
-    title = "Spiżarnie";
+    title = titlePantries;
   }
 
   // <BackButton />
