@@ -2,10 +2,10 @@ import React from "react";
 import { useRouteMatch } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Container, Toolbar, Typography } from "@material-ui/core";
+import useTranslation from "../../hooks/useTranslation";
 import BackButton from "../BackButton/BackButton";
 import LanguageSelector from "../LanguageSelector/LanguageSelector";
 import Navigation from "../Navigation/Navigation";
-import useTranslation from "../../redux/selectors/useTranslation";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -22,23 +22,20 @@ const useStyles = makeStyles(() => ({
 
 export default function ButtonAppBar({ variant }) {
   const classes = useStyles();
+  const { t } = useTranslation();
 
   const isLoginPage = useRouteMatch("/");
   const isSignUpPage = useRouteMatch("/signup");
   const isDashboardPage = useRouteMatch("/dashboard");
 
-  const titleApp = useTranslation("title.app");
-  const titleLogin = useTranslation("title.login");
-  const titleSignUp = useTranslation("title.signup");
-  const titlePantries = useTranslation("title.pantries");
-  let title = titleApp;
+  let title = t("title.app");
 
   if (isLoginPage && isLoginPage.isExact) {
-    title = titleLogin;
+    title = t("title.login");
   } else if (isSignUpPage && isSignUpPage.isExact) {
-    title = titleSignUp;
+    title = t("title.signup");
   } else if (isDashboardPage && isDashboardPage.isExact) {
-    title = titlePantries;
+    title = t("title.pantries");
   }
 
   // <BackButton />
