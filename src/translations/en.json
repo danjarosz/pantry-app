@@ -2,5 +2,21 @@
   "title.app": "Pantry App",
   "title.login": "Sign in",
   "title.signup": "Sign up",
-  "title.pantries": "Pantries"
+  "title.pantries": "Pantries",
+  "navigation.item.dashboard": "Dashboard",
+  "navigation.item.settings": "Settings",
+  "navigation.item.logout": "Log out",
+  "navigation.item.login": "Sign in",
+  "navigation.item.signup": "Sign up",
+  "notfoundpage.info": "Page not found. You will be redirected to the previous page in",
+  "notfoundpage.seconds": "seconds",
+  "loginpage.button.login": "Sign in",
+  "loginpage.button.login.google": "Sign in with Google",
+  "loginpage.label.email": "e-mail",
+  "loginpage.label.password": "password",
+  "loginpage.message.part.one": "If you don't have an account, you can create one clicking ",
+  "loginpage.message.part.two": "or sign in with Google",
+  "signuppage.message.part.one": "If you have an account, click ",
+  "signuppage.message.part.two": "to go to the login page.",
+  "here": "here"
 }

@@ -2,5 +2,21 @@
   "title.app": "Pantry App",
   "title.login": "Logowanie",
   "title.signup": "Rejstracja",
-  "title.pantries": "Spiżarnie"
+  "title.pantries": "Spiżarnie",
+  "navigation.item.dashboard": "Twoje spiżarnie",
+  "navigation.item.settings": "Ustawienia",
+  "navigation.item.logout": "Wyloguj się",
+  "navigation.item.login": "Logowanie",
+  "navigation.item.signup": "Rejestracja",
+  "notfoundpage.info": "Strona nie została znaleziona. Zostaniesz przekierowany do poprzedniej strony za",
+  "notfoundpage.seconds": "sekund",
+  "loginpage.button.login": "Zaloguj się",
+  "loginpage.button.login.google": "Zaloguj się z Google",
+  "loginpage.label.email": "e-mail",
+  "loginpage.label.password": "hasło",
+  "loginpage.message.part.one": "Jeśli nie masz konta możesz założyć je klikając ",
+  "loginpage.message.part.two": "lub możesz zalogować się za pomocą Twojego konta Google.",
+  "signuppage.message.part.one": "Jeśli posiadasz już konto, kliknij ",
+  "signuppage.message.part.two": "aby przejść do strony logowania.",
+  "here": "tutaj"
 }

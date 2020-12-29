@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/styles";
 import { Link } from "react-router-dom";
 import {
@@ -9,11 +9,12 @@ import {
   ListItem,
   ListItemText,
   ListItemIcon,
-  Typography
-} from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import LockOpenIcon from '@material-ui/icons/LockOpen';
+  Typography,
+} from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import LockOpenIcon from "@material-ui/icons/LockOpen";
+import useTranslation from "../../hooks/useTranslation";
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -23,91 +24,83 @@ const useStyles = makeStyles((theme) => ({
     width: 250,
   },
   logo: {
-    textTransform: "uppercase"
+    textTransform: "uppercase",
   },
   link: {
     textDecoration: "none",
     color: "rgba(0, 0, 0, 0.54)",
-    fontWeight: "700"
-  }
+    fontWeight: "700",
+  },
 }));
 
 const Navigation = ({ variant }) => {
+  const { t } = useTranslation();
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
   const openDrawer = () => {
     setOpen(true);
-  }
+  };
 
   const closeDrawer = () => {
     setOpen(false);
-  }
+  };
 
   const privateMenuItems = [
     {
       type: "link",
-      label: "Twoje spiżarnie",
-      navigateTo: "/dashboard"
+      label: t("navigation.item.dashboard"),
+      navigateTo: "/dashboard",
     },
-    { 
+    {
       type: "link",
-      label: "Ustawienia",
-      navigateTo: "/settings"
+      label: t("navigation.item.settings"),
+      navigateTo: "/settings",
     },
     {
       type: "button",
-      label: "Wyloguj się"
-    }
-  ]
+      label: t("navigation.item.logout"),
+    },
+  ];
 
   const publicMenuItems = [
-    { 
+    {
       type: "link",
-      label: "Logowanie",
+      label: t("navigation.item.login"),
       navigateTo: "/",
-      icon: <ExitToAppIcon />
+      icon: <ExitToAppIcon />,
     },
     {
       type: "link",
-      label: "Rejestracja",
+      label: t("navigation.item.signup"),
       navigateTo: "/signup",
-      icon: <LockOpenIcon />
-    }
-  ]
+      icon: <LockOpenIcon />,
+    },
+  ];
 
-  const getNavItems = (list) => list.map(item => {
-    const { type, label, navigateTo, icon } = item;
+  const getNavItems = (list) =>
+    list.map((item) => {
+      const { type, label, navigateTo, icon } = item;
 
-    const baseItemEl = (
-      <ListItem
-          button
-        >
-          <ListItemIcon>
-            {icon}
-          </ListItemIcon>
-          <ListItemText>
-            {label}
-          </ListItemText>
-      </ListItem>
-    )
-    
-    let itemEl = baseItemEl; 
+      const baseItemEl = (
+        <ListItem button>
+          <ListItemIcon>{icon}</ListItemIcon>
+          <ListItemText>{label}</ListItemText>
+        </ListItem>
+      );
 
-    if (type === "link") {
-      itemEl = (
-        <Link
-          key={navigateTo}
-          to={navigateTo}
-          className={classes.link}
-        >
-          {baseItemEl}
-        </Link>
-      )
-    }
+      let itemEl = baseItemEl;
 
-    return itemEl
-  })
+      if (type === "link") {
+        itemEl = (
+          <Link key={navigateTo} to={navigateTo} className={classes.link}>
+            {baseItemEl}
+          </Link>
+        );
+      }
+
+      return itemEl;
+    });
 
   let navItems = [];
 
@@ -119,7 +112,7 @@ const Navigation = ({ variant }) => {
       navItems = getNavItems(publicMenuItems);
       break;
     default:
-      navItems = []
+      navItems = [];
   }
 
   const list = (
@@ -131,10 +124,7 @@ const Navigation = ({ variant }) => {
     >
       <List>
         <ListItem>
-          <Typography
-            variant="h6"
-            className={classes.logo}
-          >
+          <Typography variant="h6" className={classes.logo}>
             Pantry App
           </Typography>
         </ListItem>
@@ -155,15 +145,11 @@ const Navigation = ({ variant }) => {
       >
         <MenuIcon />
       </IconButton>
-      <Drawer 
-        anchor="left"
-        open={open}
-        onClose={closeDrawer}
-      >
+      <Drawer anchor="left" open={open} onClose={closeDrawer}>
         {list}
-    </Drawer>
+      </Drawer>
     </>
   );
-}
+};
 
 export default Navigation;
