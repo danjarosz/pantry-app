@@ -7,5 +7,7 @@
   "navigation.item.settings": "Ustawienia",
   "navigation.item.logout": "Wyloguj się",
   "navigation.item.login": "Logowanie",
-  "navigation.item.signup": "Rejestracja"
+  "navigation.item.signup": "Rejestracja",
+  "notfoundpage.info": "Strona nie została znaleziona. Zostaniesz przekierowany do poprzedniej strony za",
+  "notfoundpage.seconds": "sekund"
 }

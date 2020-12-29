@@ -7,5 +7,7 @@
   "navigation.item.settings": "Settings",
   "navigation.item.logout": "Log out",
   "navigation.item.login": "Sign in",
-  "navigation.item.signup": "Sign up"
+  "navigation.item.signup": "Sign up",
+  "notfoundpage.info": "Page not found. You will be redirected to the previous page in",
+  "notfoundpage.seconds": "seconds"
 }
