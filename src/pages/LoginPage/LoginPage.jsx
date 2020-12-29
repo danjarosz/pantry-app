@@ -1,44 +1,44 @@
-import React from 'react';
+import React from "react";
 import { makeStyles } from "@material-ui/styles";
-import { 
+import {
   Box,
   Button,
   Container,
   TextField,
   Typography,
 } from "@material-ui/core";
-import { Formik, Field, Form } from 'formik';
+import { Formik, Field, Form } from "formik";
 import { Link } from "react-router-dom";
+import useTranslation from "../../hooks/useTranslation";
 
 const useStyles = makeStyles((theme) => ({
   Link: {
-    color: theme.palette.primary.main
-  }
+    color: theme.palette.primary.main,
+  },
 }));
 
 const LoginPage = () => {
   const classes = useStyles();
+  const { t } = useTranslation();
 
   return (
-    <Container
-      maxWidth="xs"
-    >
+    <Container maxWidth="xs">
       <Box>
         <Formik>
           <Form>
             <Box my={3}>
-              <Field 
+              <Field
                 component={TextField}
-                label={"e-mail"}
+                label={t("loginpage.label.email")}
                 fullWidth={true}
                 variant="outlined"
                 required={true}
               />
             </Box>
             <Box my={3}>
-              <Field 
+              <Field
                 component={TextField}
-                label={"hasło"}
+                label={t("loginpage.label.password")}
                 fullWidth={true}
                 variant="outlined"
                 required={true}
@@ -52,28 +52,32 @@ const LoginPage = () => {
               fullWidth={true}
               type="submit"
             >
-              Zaloguj się
+              {t("loginpage.button.login")}
             </Button>
           </Form>
         </Formik>
         <Box my={3}>
           <Typography>
-            Jeśli nie masz konta możesz założyć je klikając <Link to="/signup" className={classes.Link}>tutaj</Link>, lub możesz zalogować się za pomocą Twojego konta Google.
+            {t("loginpage.message.part.one")}
+            <Link to="/signup" className={classes.Link}>
+              {t("here")}
+            </Link>
+            , {t("loginpage.message.part.two")}
           </Typography>
         </Box>
         <Box my={3}>
           <Button
-              variant="contained"
-              color="secondary"
-              size="large"
-              fullWidth={true}
-            >
-              Zaloguj się z Google
-            </Button>
+            variant="contained"
+            color="secondary"
+            size="large"
+            fullWidth={true}
+          >
+            {t("loginpage.button.login.google")}
+          </Button>
         </Box>
       </Box>
     </Container>
-  )
+  );
 };
 
 export default LoginPage;

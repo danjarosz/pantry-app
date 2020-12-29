@@ -9,5 +9,12 @@
   "navigation.item.login": "Sign in",
   "navigation.item.signup": "Sign up",
   "notfoundpage.info": "Page not found. You will be redirected to the previous page in",
-  "notfoundpage.seconds": "seconds"
+  "notfoundpage.seconds": "seconds",
+  "loginpage.button.login": "Sign in",
+  "loginpage.button.login.google": "Sign in with Google",
+  "loginpage.label.email": "e-mail",
+  "loginpage.label.password": "password",
+  "loginpage.message.part.one": "If you don't have an account, you can create one clicking ",
+  "loginpage.message.part.two": "or sign in with Google",
+  "here": "here"
 }

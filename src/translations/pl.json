@@ -9,5 +9,12 @@
   "navigation.item.login": "Logowanie",
   "navigation.item.signup": "Rejestracja",
   "notfoundpage.info": "Strona nie została znaleziona. Zostaniesz przekierowany do poprzedniej strony za",
-  "notfoundpage.seconds": "sekund"
+  "notfoundpage.seconds": "sekund",
+  "loginpage.button.login": "Zaloguj się",
+  "loginpage.button.login.google": "Zaloguj się z Google",
+  "loginpage.label.email": "e-mail",
+  "loginpage.label.password": "hasło",
+  "loginpage.message.part.one": "Jeśli nie masz konta możesz założyć je klikając ",
+  "loginpage.message.part.two": "lub możesz zalogować się za pomocą Twojego konta Google.",
+  "here": "tutaj"
 }
