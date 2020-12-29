@@ -16,5 +16,7 @@
   "loginpage.label.password": "password",
   "loginpage.message.part.one": "If you don't have an account, you can create one clicking ",
   "loginpage.message.part.two": "or sign in with Google",
+  "signuppage.message.part.one": "If you have an account, click ",
+  "signuppage.message.part.two": "to go to the login page.",
   "here": "here"
 }

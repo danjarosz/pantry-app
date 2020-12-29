@@ -16,5 +16,7 @@
   "loginpage.label.password": "hasło",
   "loginpage.message.part.one": "Jeśli nie masz konta możesz założyć je klikając ",
   "loginpage.message.part.two": "lub możesz zalogować się za pomocą Twojego konta Google.",
+  "signuppage.message.part.one": "Jeśli posiadasz już konto, kliknij ",
+  "signuppage.message.part.two": "aby przejść do strony logowania.",
   "here": "tutaj"
 }
