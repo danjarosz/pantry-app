@@ -16,7 +16,7 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
-import { logout } from "../../redux/actions/authActions";
+import { startLogout } from "../../redux/actions/authActions";
 import useTranslation from "../../hooks/useTranslation";
 
 const useStyles = makeStyles((theme) => ({
@@ -66,7 +66,7 @@ const Navigation = ({ variant }) => {
       type: "button",
       label: t("navigation.item.logout"),
       onClick: () => {
-        dispatch(logout());
+        dispatch(startLogout());
         history.push("/");
       },
     },
