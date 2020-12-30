@@ -18,5 +18,6 @@
   "loginpage.message.part.two": "or sign in with Google",
   "signuppage.message.part.one": "If you have an account, click ",
   "signuppage.message.part.two": "to go to the login page.",
-  "here": "here"
+  "here": "here",
+  "signuppage.button.signup": "Sign up"
 }
