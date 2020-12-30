@@ -9,7 +9,9 @@ import {
 } from "@material-ui/core";
 import { Formik, Field, Form } from "formik";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import useTranslation from "../../hooks/useTranslation";
+import { startLogin } from "../../redux/actions/authActions";
 
 const useStyles = makeStyles((theme) => ({
   Link: {
@@ -19,7 +21,12 @@ const useStyles = makeStyles((theme) => ({
 
 const LoginPage = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const { t } = useTranslation();
+
+  const loginWithGoogle = () => {
+    dispatch(startLogin());
+  };
 
   return (
     <Container maxWidth="xs">
@@ -71,6 +78,7 @@ const LoginPage = () => {
             color="secondary"
             size="large"
             fullWidth={true}
+            onClick={loginWithGoogle}
           >
             {t("loginpage.button.login.google")}
           </Button>
