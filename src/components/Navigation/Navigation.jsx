@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 import { makeStyles } from "@material-ui/styles";
 import { Link } from "react-router-dom";
 import {
@@ -14,6 +16,9 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import SettingsIcon from "@material-ui/icons/Settings";
+import { startLogout } from "../../redux/actions/authActions";
 import useTranslation from "../../hooks/useTranslation";
 
 const useStyles = makeStyles((theme) => ({
@@ -34,6 +39,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Navigation = ({ variant }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const { t } = useTranslation();
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -51,15 +58,22 @@ const Navigation = ({ variant }) => {
       type: "link",
       label: t("navigation.item.dashboard"),
       navigateTo: "/dashboard",
+      icon: <DashboardIcon />,
     },
     {
       type: "link",
       label: t("navigation.item.settings"),
       navigateTo: "/settings",
+      icon: <SettingsIcon />,
     },
     {
       type: "button",
       label: t("navigation.item.logout"),
+      icon: <ExitToAppIcon />,
+      onClick: () => {
+        dispatch(startLogout());
+        history.push("/");
+      },
     },
   ];
 
@@ -80,10 +94,10 @@ const Navigation = ({ variant }) => {
 
   const getNavItems = (list) =>
     list.map((item) => {
-      const { type, label, navigateTo, icon } = item;
+      const { type, label, navigateTo, icon, onClick } = item;
 
       const baseItemEl = (
-        <ListItem button>
+        <ListItem button key={label} onClick={onClick} className={classes.link}>
           <ListItemIcon>{icon}</ListItemIcon>
           <ListItemText>{label}</ListItemText>
         </ListItem>
@@ -93,7 +107,7 @@ const Navigation = ({ variant }) => {
 
       if (type === "link") {
         itemEl = (
-          <Link key={navigateTo} to={navigateTo} className={classes.link}>
+          <Link key={label} to={navigateTo} className={classes.link}>
             {baseItemEl}
           </Link>
         );
