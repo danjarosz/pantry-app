@@ -27,6 +27,7 @@ export default function ButtonAppBar({ variant }) {
   const isLoginPage = useRouteMatch("/");
   const isSignUpPage = useRouteMatch("/signup");
   const isDashboardPage = useRouteMatch("/dashboard");
+  const isSettingsPage = useRouteMatch("/settings");
 
   let title = t("title.app");
 
@@ -36,6 +37,8 @@ export default function ButtonAppBar({ variant }) {
     title = t("title.signup");
   } else if (isDashboardPage && isDashboardPage.isExact) {
     title = t("title.pantries");
+  } else if (isSettingsPage && isSettingsPage.isExact) {
+    title = t("title.settings");
   }
 
   // <BackButton />
