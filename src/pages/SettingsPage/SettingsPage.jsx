@@ -8,16 +8,16 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const DashboardPage = () => {
+const SettingsPage = () => {
   const classes = useStyles();
 
   return (
     <Container className={classes.container}>
       <Typography align="center">
-        Here will be the content of the Dashboard
+        Here will be the content of the Settings
       </Typography>
     </Container>
   );
 };
 
-export default DashboardPage;
+export default SettingsPage;
